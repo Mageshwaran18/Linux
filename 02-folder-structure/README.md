@@ -20,11 +20,22 @@
 ### **User & Application-Specific Directories**
 | Directory | Description |
 |-----------|-------------|
-| `/home` | Default location for user home directories.<br>• User `alice` → `/home/alice`<br>• User `bob` → `/home/bob`<br>• Each user has their own space in `/home`<br>• If you're alice, you can't access /home/bob unless:<br>  - bob gives you read/execute permissions<br>  - You're root user (who can access everything)<br>• The root user's home directory is /root, not inside /home<br>• Regular users have home directories under /home, but root has its own special location |
-| `/opt` | Used for installing optional third-party software. Points:<br>• If you install software in your home directory (like /home/yourname/myapp), it's usually only accessible to you<br>• Unless you change permissions or add it to system-wide PATH<br>• By default, other users can't access it<br>• If a third-party app is installed in /opt, it's system-wide and can be accessed by all users, based on permissions set for that folder or app |
+| `/home` | Default location for user home directories.
+• User `alice` → `/home/alice`
+• User `bob` → `/home/bob`
+• Each user has their own space in `/home`
+• If you're alice, you can't access /home/bob unless:
+  - bob gives you read/execute permissions
+  - You're root user (who can access everything)
+• The root user's home directory is /root, not inside /home
+• Regular users have home directories under /home, but root has its own special location |
+| `/opt` | Used for installing optional third-party software. Points:
+• If you install software in your home directory (like /home/yourname/myapp), it's usually only accessible to you
+• Unless you change permissions or add it to system-wide PATH
+• By default, other users can't access it
+• If a third-party app is installed in /opt, it's system-wide and can be accessed by all users, based on permissions set for that folder or app |
 | `/srv` | Holds data for services like web servers (rarely used in containers). |
 | `/root` | Home directory for the root user. |
-
 ### **Temporary & Volatile Directories**
 | Directory | Description |
 |-----------|-------------|
