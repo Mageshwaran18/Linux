@@ -20,8 +20,7 @@
 ### **User & Application-Specific Directories**
 | Directory | Description |
 |-----------|-------------|
-| `/home` | Default location for user home directories. |
-| `/home` points: |
+| `/home` | Default location for user home directories.
 • User `alice` → `/home/alice`
 • User `bob` → `/home/bob`
 • Each user has their own space in `/home`
