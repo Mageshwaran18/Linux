@@ -20,25 +20,23 @@
 ### **User & Application-Specific Directories**
 | Directory | Description |
 |-----------|-------------|
-| `/home` | Default location for user home directories.Yes ✅
-
-/home is the directory where **all user folders** are stored.
-
-Example:
-
-* User `alice` → `/home/alice`
-* User `bob` → `/home/bob`
-
-Each user has their own space in `/home`.
- If you're alice, you can’t access /home/bob unless:
-
-bob gives you read/execute permissions, or
-
-You're root user (who can access everything)The root user’s home directory is /root, not inside /home.
-Regular users have home directories under /home, but root has its own special location.|
-| `/opt` | Used for installing optional third-party software. If you install software in your home directory (like /home/yourname/myapp), it's usually only accessible to you, unless you change permissions or add it to system-wide PATH. By default, other users can't access it. If a third-party app is installed in /opt, it's system-wide and can be accessed by all users, based on permissions set for that folder or app. || `/srv` | Holds data for services like web servers (rarely used in containers). |
+| `/home` | Default location for user home directories. |
+| `/home` points: |
+• User `alice` → `/home/alice`
+• User `bob` → `/home/bob`
+• Each user has their own space in `/home`
+• If you're alice, you can't access /home/bob unless:
+  - bob gives you read/execute permissions
+  - You're root user (who can access everything)
+• The root user's home directory is /root, not inside /home
+• Regular users have home directories under /home, but root has its own special location |
+| `/opt` | Used for installing optional third-party software. Points:
+• If you install software in your home directory (like /home/yourname/myapp), it's usually only accessible to you
+• Unless you change permissions or add it to system-wide PATH
+• By default, other users can't access it
+• If a third-party app is installed in /opt, it's system-wide and can be accessed by all users, based on permissions set for that folder or app |
+| `/srv` | Holds data for services like web servers (rarely used in containers). |
 | `/root` | Home directory for the root user. |
-
 ### **Temporary & Volatile Directories**
 | Directory | Description |
 |-----------|-------------|
