@@ -5,7 +5,7 @@
 ### **Symbolic Links (Less Significant)**
 | Directory | Description |
 |-----------|-------------|
-| `/sbin -> /usr/sbin` | System binaries for administrative commands (linked to `/usr/sbin`). |
+| `/sbin -> /usr/sbin` | System binaries for administrative commands (linked to `/usr/sbin`).<br>Ex:-  Contains shutdown binary file which is responsible for shutting and restart of the machine. Which requires root user privileges.|
 | `/bin -> /usr/bin` | Essential user binaries (linked to `/usr/bin`). |
 | `/lib -> /usr/lib` | Shared libraries and kernel modules (linked to `/usr/lib`). |
 
@@ -15,7 +15,7 @@
 | `/boot` | Stores files needed for booting the system (not relevant in containers). |
 | `/usr` | Contains most user-installed applications and libraries. |
 | `/var` | Stores logs, caches, and temporary files that change frequently.Third party libraries |
-| `/etc` | Stores system configuration files.Similar to the C: drive in the windows machine. It also contains os-release which tells all the details about the os which is being installed and used. |
+| `/etc` | Stores system configuration files.Similar to the C: drive in the windows machine. <br> • It also contains os-release which tells all the details about the os which is being installed and used. |
 
 ### **User & Application-Specific Directories**
 | Directory | Description |
