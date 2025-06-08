@@ -22,28 +22,18 @@ Please refer to the folders at the root level of this repository to go through t
 
 Basic Commands :- 
 
-```bash
-ls          # To list all the folders present in the current directory 
-pwd         # To show the path of the current directory 
-which       # Full path of the command 
-cat         # To display the file content on the Screen 
-echo        # Prints text or variable to the Screen 
-apt install vim  # to install vim
-su <username>    # Switch to a user
-whoami          # shows the current logged - in username 
-adduser <username>  # create a new user 
-groupadd <groupname>  # create a new group 
-```
+| Command | Description |
+|----------|-------------|
+| ls | To list all the folders present in the current directory |
+| pwd | To show the path of the current directory |
+| which | Full path of the command |
+| cat | To display the file content on the Screen |
+| echo | Prints text or variable to the Screen |
+| apt install vim | to install vim |
+| su <username> | Switch to a user |
+| whoami | shows the current logged - in username |
+| adduser <username> | create a new user |
+| groupadd <groupname> | create a new group |
 
-id <username> -->  To identify which group did the user belongs to.
-usermod -aG <groupname> <username> --> Add a user to a particular group.
-rm -r <fodlername> --> To delete the folder and it's component.
-touch <filename> --> To create a file.
-ESC + :wq --> To save and exit from a file.
-ESC + :q --> To exit from a file but doesn't save the changes made currently.
-ESC + :<linenumber> --> Move to a specific line in a file.
-echo '<text>' >> <filename> --> Appends the text into the file.
-ESC --> To exit from the insert mode to the normal mode in the VIM ( text editor )
-ESC + /<pattern> --> To search for a text in the file.
 
 
