@@ -3,6 +3,9 @@
 ## Introduction to User Management in Linux
 Linux is a multi-user operating system, meaning multiple users can operate on a system simultaneously. Proper user management ensures security, controlled access, and system integrity. 
 
+Why multiple users are required ? 
+Consider I have 4 users and If I gave all the users root user cridentials , In later time if the system is corrupted then i can't find who made the mistake. This lead to the less accountability of the user.
+
 Key files involved in user management:
 - `/etc/passwd` – Stores user account details.
 - `/etc/shadow` – Stores encrypted user passwords.
@@ -23,6 +26,12 @@ To create a user with a home directory:
 useradd -m username
 ```
 
+## Managing User Passwords
+To set or change a user’s password:
+```bash
+passwd username
+```
+
 To specify a shell:
 ```bash
 useradd -s /bin/bash username
@@ -34,11 +43,7 @@ adduser username
 ```
 This is an interactive command that asks for a password and additional details.
 
-## Managing User Passwords
-To set or change a user’s password:
-```bash
-passwd username
-```
+
 
 ### Enforcing Password Policies
 - **Password expiration**: Set password expiry days
@@ -49,10 +54,16 @@ passwd username
   ```bash
   passwd -l username
   ```
+  passwd -l <username> locks the user account — it doesn't change the password but disables login by putting a ! in front of the password hash.
+
+User is blocked from logging in, but files and settings stay safe.
 - **Unlock a user account**
   ```bash
   passwd -u username
   ```
+  passwd -u <username> unlocks the user account that was locked with -l.
+
+It removes the ! from the password hash, allowing the user to log in again.
 
 ## Modifying Users
 Modify an existing user with `usermod`:
@@ -84,6 +95,11 @@ userdel -r username
 ```bash
 groupadd groupname
 ```
+```bash
+cat etc/group
+```
+--> Returns default list of default groups 
+--> groupname:x:<groupId>:<users_in_the_group> 
 
 ### Adding Users to Groups
 ```bash
@@ -99,6 +115,8 @@ groups username
 ```bash
 usermod -g new_primary_group username
 ```
+removes the user from their old primary group and sets a new one.
+🔸 It only changes the primary group, not the secondary groups.
 
 ## Sudo Access and Privilege Escalation
 ### Adding a User to Sudo Group
