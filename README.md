@@ -19,3 +19,19 @@ Following topics are covered as part of the course and documentation.
 - Disk and Storage management in Linux
 
 Please refer to the folders at the root level of this repository to go through the documentation. 
+
+Basic Commands :- 
+
+ls --> To list all the folders present in the current directory 
+pwd --> To show the path of the current directory 
+which --> Full path of the command 
+cat --> To display the file content on the Screen 
+echo --> Prints text or variable to the Screen 
+apt install vim --> to install vim
+su <username> --> Switch to a user
+whoami --> shows the current logged - in username 
+adduser <username> --> create a new user 
+groupadd <groupname> -- create a new group 
+
+
+
