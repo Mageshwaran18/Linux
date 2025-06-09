@@ -61,6 +61,9 @@
 
 ---
 
+### Reading a file 
+- `head -10 <filename.txt>` - To read the first 10 lines of a file.
+- `tail -10 <filename.txt>` - To read the last 10 lines of a file.
 ### Working with Multiple Files
 - `:e filename` – Open a **new file**  
 - `:w` – Save file  
