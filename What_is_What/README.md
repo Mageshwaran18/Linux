@@ -67,3 +67,15 @@ What is primary group and secondary group ?
 
     * `gid=...` → Primary group
     * `groups=...` → All groups (primary + secondary)
+
+What is user management and file permissions ?
+
+    User Management = Creating users & groups
+
+    File Permissions = Controlling what users can read, write, or execute on files/directories
+
+Did Linux comes with the file permissions by default ?
+
+    By default linux provides basic rules so that file permissions is maintained. Example :- You can see the other user directory and the file in the directory . You can also read the content in that file but updating or deleting the file is not permitted. You need permissions for that. 
+
+    You can modify the file permission based on your requirement using the chmod command. 
