@@ -35,5 +35,15 @@ Basic Commands :-
 | adduser <username> | create a new user |
 | groupadd <groupname> | create a new group |
 
+id <username> -->  To identify which group did the user belongs to.
+usermod -aG <groupname> <username> --> Add a user to a particular group.
+rm -r <fodlername> --> To delete the folder and it's component.
+touch <filename> --> To create a file.
+ESC + :wq --> To save and exit from a file.
+ESC + :q --> To exit from a file but doesn't save the changes made currently.
+ESC + :<linenumber> --> Move to a specific line in a file.
+echo '<text>' >> <filename> --> Appends the text into the file.
+ESC --> To exit from the insert mode to the normal mode in the VIM ( text editor )
+ESC + /<pattern> --> To search for a text in the file.
 
 
