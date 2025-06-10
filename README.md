@@ -46,4 +46,9 @@ echo '<text>' >> <filename> --> Appends the text into the file.
 ESC --> To exit from the insert mode to the normal mode in the VIM ( text editor )
 ESC + /<pattern> --> To search for a text in the file.
 
+`u` –-> Undo last action  
+Ctrl + r –-> Redo an undone change  
+    (undo and redo option in vim is available only in the normal mode and not in insert mode)
+groupdel <groupname> --> To delete a group
+
 
