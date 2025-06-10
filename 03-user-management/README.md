@@ -101,6 +101,11 @@ cat etc/group
 --> Returns default list of default groups 
 --> groupname:x:<groupId>:<users_in_the_group> 
 
+### To delete a group
+```bash
+groupdel <groupname>
+```
+
 ### Adding Users to Groups
 ```bash
 usermod -aG groupname username
