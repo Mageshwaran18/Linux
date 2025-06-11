@@ -51,4 +51,27 @@ Ctrl + r –-> Redo an undone change
     (undo and redo option in vim is available only in the normal mode and not in insert mode)
 groupdel <groupname> --> To delete a group
 
+chmod <username>:<usergroup> <filename> --> To change the ownership of the file to a newuser.
+
+Important Differences from Directories:
+
+| Permission | Directory | File |
+|------------|-----------|------|
+| r | List directory contents | Read file contents |
+| w | Create/delete files inside | Modify file contents |
+| x | Enter directory (cd) | Run file as program |
+
+if  you have rwx permission for s file inside a folder but if you don't have wx for the folder of the file , then you can't execute the file , can't get into the file , can't read the file too.
+
+Each permission has a value:
+- Read (`4`), Write (`2`), Execute (`1`).
+
+chown -R newuser:newgroup directory/ --> Change ownership to the folder and all it's corressponding files
+
+Default: 755 for directories, 644 for files
+
+chown -R <username>:<groupname> <directory>/ --> Change ownership of all files and folders inside a directory
+
+chmod +t directory/ --> Makes sure that only the owner has the permission to delete or rename the file , even if others have the write access.
+
 
