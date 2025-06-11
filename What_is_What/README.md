@@ -162,3 +162,68 @@ Explain --> chmod u=rxw file.sh
 Consider you have only the execution permission and don't have read permission for shell file , can you execute the file ?
     Even though you have execute permission , they also need read access to read the script content (shell scripts must be readable to be run).
 
+Can I get into other's directory only with the read permission ?
+    No, with the help of read permission for a directory you can just list the files in the directory and you can't enter into that directory. Even you can't read the file contents in that directory
+
+    To get into the other's directory you should also need the execute permission for that directory.
+
+    Directory permissions and file permissions are completely independent.
+    
+Important Differences from Directories:
+
+| Permission | Directory | File |
+|------------|-----------|------|
+| r | List directory contents | Read file contents |
+| w | Create/delete files inside | Modify file contents |
+| x | Enter directory (cd) | Run file as program |
+
+Explain file permissions and folder permissions in depth :-
+    Directory Permission Requirements:
+    To access any file, you need AT MINIMUM:
+
+    Execute (x) permission on the directory
+    Execute (x) permission on ALL parent directories in the path
+
+    Possible Combinations:
+    1. Directory: r+x, File: r ✅
+    bash# Directory: 755, File: 644
+    ls /dir          # ✅ Can list directory
+    cd /dir          # ✅ Can enter directory  
+    cat /dir/file    # ✅ Can read file
+
+    2. Directory: r+x, File: no read ❌
+    bash# Directory: 755, File: 600 (you're not owner)
+    ls /dir          # ✅ Can list directory
+    cd /dir          # ✅ Can enter directory
+    cat /dir/file    # ❌ Permission denied - no file read permission
+
+    3. Directory: x only, File: r ✅ (if you know filename)
+    bash# Directory: 711, File: 644
+    ls /dir          # ❌ Cannot list directory contents
+    cd /dir          # ✅ Can enter directory
+    cat /dir/file    # ✅ Can read file (if you know the exact name)
+
+    4. Directory: r only, File: r ❌
+    bash# Directory: 644, File: 644
+    ls /dir          # ✅ Can see filenames
+    cd /dir          # ❌ Cannot enter directory
+    cat /dir/file    # ❌ Cannot access file path [ To reach the file you should go through the directory but you don't even has the permission to enter into the directory then how it possible to reach the file ]
+
+    5. Directory: w+x, File: r ✅
+    bash# Directory: 733, File: 644
+    ls /dir          # ❌ Cannot list contents
+    cd /dir          # ✅ Can enter directory
+    cat /dir/file    # ✅ Can read file (if you know name)
+    rm /dir/file     # ✅ Can delete file (directory write permission!)
+
+    Key Insights:
+        Directory execute (x) is mandatory - without it, you cannot access any files inside, regardless of file permissions.
+        Dangerous combination: Directory w+x, File read-only
+
+        You can delete files even if you can't read them!
+        Directory write permission overrides file permissions for deletion
+
+    Stealth access: Directory x only
+        Can access files if you know exact names
+        Cannot discover what files exist
+        Useful for "hidden" file sharing
