@@ -52,10 +52,15 @@ chown newuser:newgroup filename  # Change owner and group
 chown :newgroup filename  # Change only group
 ```
 
-Recursively change ownership:
+Change ownership of all files and folders inside a directory:
 ```bash
 chown -R newuser:newgroup directory/
 ```
+- The -R flag means "recursive" - it affects all files and folders inside
+- newuser: the new owner's username
+- newgroup: the new group name
+- directory/: the folder to change ownership for
+
 
 ## Changing Group Ownership with `chgrp`
 ```bash
@@ -70,6 +75,8 @@ Allows users to run a file with the file owner's permissions.
 chmod u+s filename
 ```
 Example: `/usr/bin/passwd` allows users to change their passwords.
+
+The passwd command updates system files like /etc/shadow, which need root permissions. But since passwd has the Set User ID (SUID) bit set, when a normal user runs it, the command runs with root's permissions—just for that action.
 
 ### SetGID (`s` on group execute bit)
 Files: Users run the file with the group's permissions.
@@ -86,6 +93,10 @@ chmod +t directory/
 ```
 Example: `/tmp` directory.
 
+Used on shared directories (like /tmp).
+
+It means: Only the file owner can delete/rename their files, even if others have write access.
+
 ## Default Permissions: `umask`
 `umask` defines default permissions for new files and directories.
 Check current umask:
@@ -94,8 +105,20 @@ umask
 ```
 Set a new umask:
 ```bash
-umask 022  # Default: 755 for directories, 644 for files
+umask 0002  # Default: 755 for directories, 644 for files
 ```
+How umask works:
+    umask subtracts permissions from the default maximums:
+
+    Files: Default maximum is 666 (rw-rw-rw-)
+    Directories: Default maximum is 777 (rwxrwxrwx)
+
+umask: 0002
+       ||||
+       |||└── Others: 2 (write permission removed)
+       ||└─── Group: 0 (no permissions removed) 
+       |└──── Owner: 0 (no permissions removed)
+       └───── Special bits: 0
 
 ## Conclusion
 Understanding file permissions is essential for system security and proper file management. Using `chmod`, `chown`, and `chgrp`, you can control access to files and directories efficiently.
