@@ -3,6 +3,15 @@
 ## Introduction to Process Management
 A process is an instance of a running program. Linux provides multiple utilities to monitor, manage, and control processes effectively. Each process has a unique **Process ID (PID)** and belongs to a parent process.
 
+Process management is a part of the operating system that:
+- Creates and terminates processes
+- Schedules them to run on the CPU
+- Manages process states (ready, running, waiting)
+
+Linux provides various options and methods to perform certain actions such as:
+- View the running processes
+- Kill, stop, resume the processes
+- Prioritize or Deprioritize the processes        
 ## Index of Commands Covered
 
 ### Viewing Processes
@@ -21,6 +30,21 @@ A process is an instance of a running program. Linux provides multiple utilities
 - `kill -CONT PID` – Resume a stopped process
 - `renice -n 10 -p PID` – Lower priority of a process
 - `renice -n -5 -p PID` – Increase priority of a process (requires root)
+
+### Process Priority Management
+The `renice` command allows changing process priority:
+```bash
+renice -n <nice_value> -p <PID>
+```
+
+Options:
+- `-n`: Specifies the new nice value
+- `-p`: Target process ID (PID)
+
+Priority Basics:
+- Nice value range: -20 (highest priority) to 19 (lowest priority)
+- Lower nice value = higher CPU priority
+- Higher nice value = lower CPU priority
 
 ### Background & Foreground Processes
 - `command &` – Run a command in the background
