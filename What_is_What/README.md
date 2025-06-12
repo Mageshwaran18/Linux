@@ -227,3 +227,102 @@ Explain file permissions and folder permissions in depth :-
         Can access files if you know exact names
         Cannot discover what files exist
         Useful for "hidden" file sharing
+
+# Linux Command Line Basics
+
+## What is sudo?  
+🔹 **sudo (Super User DO)**  
+- Allows a normal user to run commands with superuser (root) privileges  
+- It asks for your password, not root's  
+- Commonly used for admin tasks (e.g., install software, modify system files)  
+
+Example:
+```bash
+sudo apt update
+```
+Runs the apt update command as root.
+
+## What is bash?  
+🔹 **bash (Bourne Again SHell)**  
+- A command-line interpreter (shell)  
+- It reads your commands and executes them  
+- Supports scripting (loops, variables, functions)  
+- Most common default shell in Linux  
+
+Example:
+```bash
+#!/bin/bash
+echo "Hello"
+```
+This script runs with bash.
+
+## What is su?  
+🔹 **su (Substitute User or Switch User)**  
+- Lets you switch to another user, usually root  
+- By default: su = switch to root  
+- It asks for the target user's password  
+
+Example:
+```bash
+su
+```
+Switches to root (you need the root password).
+
+## What is -l?  
+🔹 **-l (Login shell)**  
+- Used with su or bash  
+- Gives a login environment, like when you log in freshly  
+- Loads user's profile files (.bash_profile, .profile)  
+
+Example:
+```bash
+su -l username
+```
+Switches to username with a full login environment.
+
+## What is | and why it's used for?  
+🔹 **| (Pipe)**  
+- Sends output of one command as input to another  
+- Used to combine commands  
+
+Example:
+```bash
+ls | grep file
+```
+Lists files and filters those with the word file.
+
+
+What is the sudoers file?
+    It’s a configuration file that controls who can use sudo and what commands they can run.
+
+What is apt?
+    apt = Advanced Package Tool
+
+    Used for: Installing, updating, and removing software on Debian-based Linux (like Ubuntu).
+
+Why sudo su doesn't ask root password, but su does?
+
+    ✅ sudo su
+    Uses your own password.
+
+    You're authorized via sudoers file.
+
+    Once verified, it switches to root without asking root’s password.
+
+    🔒 su
+    Tries to switch directly to root.
+
+    Needs root's actual password.
+
+    ✅ So:
+
+    sudo su = You’re trusted via sudo.
+
+    su = You must know root’s password.
+
+What is the difference between ps aux and ps ef and ps ec ?
+    | Command  | Style | Shows                                                |
+| -------- | ----- | ---------------------------------------------------- |
+| `ps aux` | BSD   | All processes + resource usage                       |
+| `ps -ef` | UNIX  | All processes + full info (PPID, time, full command) |
+| `ps -ec` | UNIX  | All processes + only command name                    |
