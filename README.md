@@ -34,24 +34,31 @@ Basic Commands :-
 | whoami | shows the current logged - in username |
 | adduser <username> | create a new user |
 | groupadd <groupname> | create a new group |
-
-id <username> -->  To identify which group did the user belongs to.
-usermod -aG <groupname> <username> --> Add a user to a particular group.
-rm -r <fodlername> --> To delete the folder and it's component.
-touch <filename> --> To create a file.
-ESC + :wq --> To save and exit from a file.
-ESC + :q --> To exit from a file but doesn't save the changes made currently.
-ESC + :<linenumber> --> Move to a specific line in a file.
-echo '<text>' >> <filename> --> Appends the text into the file.
-ESC --> To exit from the insert mode to the normal mode in the VIM ( text editor )
-ESC + /<pattern> --> To search for a text in the file.
-
-`u` –-> Undo last action  
-Ctrl + r –-> Redo an undone change  
-    (undo and redo option in vim is available only in the normal mode and not in insert mode)
-groupdel <groupname> --> To delete a group
-
-chmod <username>:<usergroup> <filename> --> To change the ownership of the file to a newuser.
+| id <username> | To identify which group did the user belongs to |
+| usermod -aG <groupname> <username> | Add a user to a particular group |
+| rm -r <fodlername> | To delete the folder and it's component |
+| touch <filename> | To create a file |
+| ESC + :wq | To save and exit from a file |
+| ESC + :q | To exit from a file but doesn't save the changes made currently |
+| ESC + :<linenumber> | Move to a specific line in a file |
+| echo '<text>' >> <filename> | Appends the text into the file |
+| ESC | To exit from the insert mode to the normal mode in the VIM ( text editor ) |
+| ESC + /<pattern> | To search for a text in the file |
+| u | Undo last action |
+| Ctrl + r | Redo an undone change |
+| groupdel <groupname> | To delete a group |
+| chmod <username>:<usergroup> <filename> | To change the ownership of the file to a newuser |
+| chown -R <username>:<groupname> <directory>/ | Change ownership of all files and folders inside a directory |
+| chmod +t directory/ | Makes sure that only the owner has the permission to delete or rename the file, even if others have the write access |
+| chown -R <newuser>:<newgroup> <directory>/ | Change ownership to the folder and all it's corressponding files |
+| ps aux | View running processes with resource utilisation |
+| ps aux \| grep <process_name> | To find a particular process |
+| kill -9 <PID> | To kill a process |
+| pkill -9 <process_name> | To kill all the instance of a process |
+| kill -STOP <PID> | To stop a process |
+| kill -CONT <PID> | To continue a process |
+|`renice -n 10 -p PID` | Lower priority of a process |
+|`renice -n -5 -p PID` | Increase priority of a process (requires root) |
 
 Important Differences from Directories:
 
@@ -66,12 +73,13 @@ if  you have rwx permission for s file inside a folder but if you don't have wx 
 Each permission has a value:
 - Read (`4`), Write (`2`), Execute (`1`).
 
-chown -R newuser:newgroup directory/ --> Change ownership to the folder and all it's corressponding files
-
 Default: 755 for directories, 644 for files
 
-chown -R <username>:<groupname> <directory>/ --> Change ownership of all files and folders inside a directory
+To exit from the nano editor :- 
+    --> Ctlr + X
+    --> Y to save , No to cancel 
+    --> Enter 
 
-chmod +t directory/ --> Makes sure that only the owner has the permission to delete or rename the file , even if others have the write access.
+
 
 
