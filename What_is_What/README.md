@@ -326,3 +326,21 @@ What is the difference between ps aux and ps ef and ps ec ?
 | `ps aux` | BSD   | All processes + resource usage                       |
 | `ps -ef` | UNIX  | All processes + full info (PPID, time, full command) |
 | `ps -ec` | UNIX  | All processes + only command name                    |
+
+What is the difference between the process and the services?
+
+🔧 Process
+    Definition: A process is any instance of a program that is being executed.
+    Started by: A user or the system.
+    Runs in: User mode or system mode.
+    Lifetime: Exists as long as the program runs.
+    Visibility: Usually visible in the task manager or process list (e.g., ps on Linux, Task Manager on Windows).
+    Examples: Opening a web browser, running a Python script, launching a video game.
+
+🛎️ Service
+    Definition: A special kind of process designed to run in the background, often without user interaction.
+    Started by: Automatically by the operating system or manually by a user/admin.
+    Runs in: Typically system mode.
+    Lifetime: May run continuously in the background even without user login.
+    Managed by: Service managers like systemd (Linux), services.msc (Windows).
+    Examples: Print spooler, web server (Apache/Nginx), database service (MySQL).

@@ -59,6 +59,8 @@ Basic Commands :-
 | kill -CONT <PID> | To continue a process |
 |`renice -n 10 -p PID` | Lower priority of a process |
 |`renice -n -5 -p PID` | Increase priority of a process (requires root) |
+| systemctl list-units --type=service | List all the running services |
+| `systemctl start\stop <service_name> | Stop\Start the service in a system |
 
 Important Differences from Directories:
 
