@@ -61,6 +61,16 @@ Basic Commands :-
 |`renice -n -5 -p PID` | Increase priority of a process (requires root) |
 | systemctl list-units --type=service | List all the running services |
 | `systemctl start\stop <service_name> | Stop\Start the service in a system |
+| `htop` | Shows the real time cpu and memory utilization in realtime (can't be used in real time)|
+| `free -m` | Shows memory utilization in human readable format and also can be used in the scripts |
+| ds -sh dir\dir | Disk utilization for each folder/directory |
+| ip a | Displays all IP addresses and network interfaces on the system |
+| ss -tulnp | Show active connections and listening ports |
+| traceroute hostname | Shows the path (hops) that packets take to reach a hostname |
+| ping hostname | To test network connectivity |
+| nslookup <hostname> | Tells the IP address of the of the domain by asking to the DNS server |
+
+
 
 Important Differences from Directories:
 

@@ -6,10 +6,11 @@ Monitoring system resources is essential to ensure optimal performance, detect i
 ## Index of Commands Covered
 
 ### CPU and Memory Monitoring
-- `top` – Real-time system monitoring
+## Shows Memory and CPU utilizations
+- `top` – Real-time system monitoring but can't be used in the scripts
 - `htop` – Interactive process viewer (requires installation)
 - `vmstat` – Report system performance statistics
-- `free -m` – Show memory usage
+- `free -m` – Show memory usage can be used in the scripts 
 
 ### Disk Monitoring
 - `df -h` – Check disk space usage
