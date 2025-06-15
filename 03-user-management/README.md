@@ -3,8 +3,8 @@
 ## Introduction to User Management in Linux
 Linux is a multi-user operating system, meaning multiple users can operate on a system simultaneously. Proper user management ensures security, controlled access, and system integrity. 
 
-Why multiple users are required ? 
-Consider I have 4 users and If I gave all the users root user cridentials , In later time if the system is corrupted then i can't find who made the mistake. This lead to the less accountability of the user.
+Why the user management is required? 
+Consider I have 4 users and if I gave all the users root user credentials, in later time if the system is corrupted then I can't find who made the mistake. This leads to less accountability of the user.
 
 Key files involved in user management:
 - `/etc/passwd` – Stores user account details.
@@ -50,20 +50,14 @@ This is an interactive command that asks for a password and additional details.
   ```bash
   chage -M 90 username
   ```
-- **Lock a user account**
+- **Lock a user account**: Locks the user account — it doesn't change the password but disables login by putting a ! in front of the password hash.User is blocked from logging in, but files and settings stay safe.
   ```bash
   passwd -l username
   ```
-  passwd -l <username> locks the user account — it doesn't change the password but disables login by putting a ! in front of the password hash.
-
-User is blocked from logging in, but files and settings stay safe.
-- **Unlock a user account**
+- **Unlock a user account** : Unlocks the user account that was locked with -l.It removes the ! from the password hash, allowing the user to log in again.
   ```bash
   passwd -u username
   ```
-  passwd -u <username> unlocks the user account that was locked with -l.
-
-It removes the ! from the password hash, allowing the user to log in again.
 
 ## Modifying Users
 Modify an existing user with `usermod`:
@@ -75,6 +69,8 @@ Modify an existing user with `usermod`:
   ```bash
   usermod -d /new/home/directory -m username
   ```
+  -m Moves all files from old home to new home
+
 - Change the default shell:
   ```bash
   usermod -s /bin/zsh username
@@ -89,17 +85,16 @@ To remove a user and their home directory:
 ```bash
 userdel -r username
 ```
-
 ## Working with Groups
 ### Creating Groups
 ```bash
 groupadd groupname
 ```
 ```bash
-cat etc/group
+cat /etc/group
 ```
---> Returns default list of default groups 
---> groupname:x:<groupId>:<users_in_the_group> 
+* Returns default list of default groups <br>
+* groupname:x:<groupId>:<users_in_the_group> <br>
 
 ### To delete a group
 ```bash
@@ -120,8 +115,8 @@ groups username
 ```bash
 usermod -g new_primary_group username
 ```
-removes the user from their old primary group and sets a new one.
-🔸 It only changes the primary group, not the secondary groups.
+* Removes the user from their old primary group and sets a new one.<br>
+* It only changes the primary group, not the secondary groups.<br>
 
 ## Sudo Access and Privilege Escalation
 ### Adding a User to Sudo Group
