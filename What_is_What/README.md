@@ -1,3 +1,36 @@
+Linux is Open Source which means the code is visible to everyone then why it's considered to be more secure ?
+
+    Linux is open source, meaning anyone can see the code, including hackers.But here's why it's still more secure:
+    * Thousands of developers constantly review the code.Bugs or vulnerabilities are found and fixed quickly.
+    * Users can verify what the OS does—no hidden backdoors.Security flaws are disclosed, not kept secret like in closed-source OS.
+    * Admins can remove unwanted services, reducing attack surface.You can harden Linux based on your use case.
+    * Linux has a strong permission model (root, user, group).Limits what damage malware can do.
+
+    So yes, code is visible—but so is every mistake, and that actually makes it stronger over time.
+
+What are some of the distributions of Linux ?
+     
+    Ubuntu --> One of the most beginner-friendly distros, widely used for personal and server use. It has great community support.
+
+    Kali Linux --> Designed for cybersecurity and penetration testing.
+
+    RedHat --> Provides enterprise level linux solutions , focuses more on security , stability , support
+
+From where the packages of linux were installed ?
+    
+    * A package manager fetches software from official repositories (online storage of packages).
+    Example: Ubuntu gets packages from archive.ubuntu.com.
+
+Full form of APT ?
+
+    * Advanced package tools 
+
+Why Should You Run apt update After Installing Ubuntu?
+    
+    When you install Ubuntu, the packages included in the ISO image might be outdated.
+    So we run this command `sudo apt update`
+
+
 What is root user?
     Root user is a super user who has all the privileges/full control over the system. Manages other users in the system.
 
@@ -94,7 +127,7 @@ What happens when a user is created ?
 
         It's a standard practice in Linux systems for flexibility and security.
 
-In file permissions what does ' 1 user group 1234 Mar 28 10:00 myfile.sh' explains ?
+In file permissions what does '-rwxr--r-- 1 user group 1234 Mar 28 10:00 myfile.sh' explains ?
 
     Let’s break down -rwxr--r-- 1 user group 1234 Mar 28 10:00 myfile.sh in depth:
 
@@ -177,57 +210,66 @@ Important Differences from Directories:
 | w | Create/delete files inside | Modify file contents |
 | x | Enter directory (cd) | Run file as program |
 
-Explain file permissions and folder permissions in depth :-
-    Directory Permission Requirements:
-    To access any file, you need AT MINIMUM:
+# File and Directory Permissions In-Depth
 
-    Execute (x) permission on the directory
-    Execute (x) permission on ALL parent directories in the path
+## Directory Permission Requirements
+To access any file, you need AT MINIMUM:
+- Execute (x) permission on the directory
+- Execute (x) permission on ALL parent directories in the path
 
-    Possible Combinations:
-    1. Directory: r+x, File: r ✅
-    bash# Directory: 755, File: 644
-    ls /dir          # ✅ Can list directory
-    cd /dir          # ✅ Can enter directory  
-    cat /dir/file    # ✅ Can read file
+## Possible Combinations
 
-    2. Directory: r+x, File: no read ❌
-    bash# Directory: 755, File: 600 (you're not owner)
-    ls /dir          # ✅ Can list directory
-    cd /dir          # ✅ Can enter directory
-    cat /dir/file    # ❌ Permission denied - no file read permission
+### 1. Directory: r+x, File: r ✅
+```bash
+# Directory: 755, File: 644
+ls /dir          # ✅ Can list directory
+cd /dir          # ✅ Can enter directory  
+cat /dir/file    # ✅ Can read file
+```
 
-    3. Directory: x only, File: r ✅ (if you know filename)
-    bash# Directory: 711, File: 644
-    ls /dir          # ❌ Cannot list directory contents
-    cd /dir          # ✅ Can enter directory
-    cat /dir/file    # ✅ Can read file (if you know the exact name)
+### 2. Directory: r+x, File: no read ❌
+```bash
+# Directory: 755, File: 600 (you're not owner)
+ls /dir          # ✅ Can list directory
+cd /dir          # ✅ Can enter directory
+cat /dir/file    # ❌ Permission denied - no file read permission
+```
 
-    4. Directory: r only, File: r ❌
-    bash# Directory: 644, File: 644
-    ls /dir          # ✅ Can see filenames
-    cd /dir          # ❌ Cannot enter directory
-    cat /dir/file    # ❌ Cannot access file path [ To reach the file you should go through the directory but you don't even has the permission to enter into the directory then how it possible to reach the file ]
+### 3. Directory: x only, File: r ✅ (if you know filename)
+```bash
+# Directory: 711, File: 644
+ls /dir          # ❌ Cannot list directory contents
+cd /dir          # ✅ Can enter directory
+cat /dir/file    # ✅ Can read file (if you know the exact name)
+```
 
-    5. Directory: w+x, File: r ✅
-    bash# Directory: 733, File: 644
-    ls /dir          # ❌ Cannot list contents
-    cd /dir          # ✅ Can enter directory
-    cat /dir/file    # ✅ Can read file (if you know name)
-    rm /dir/file     # ✅ Can delete file (directory write permission!)
+### 4. Directory: r only, File: r ❌
+```bash
+# Directory: 644, File: 644
+ls /dir          # ✅ Can see filenames
+cd /dir          # ❌ Cannot enter directory
+cat /dir/file    # ❌ Cannot access file path [ To reach the file you should go through the directory but you don't even has the permission to enter into the directory then how it possible to reach the file ]
+```
 
-    Key Insights:
-        Directory execute (x) is mandatory - without it, you cannot access any files inside, regardless of file permissions.
-        Dangerous combination: Directory w+x, File read-only
+### 5. Directory: w+x, File: r ✅
+```bash
+# Directory: 733, File: 644
+ls /dir          # ❌ Cannot list contents
+cd /dir          # ✅ Can enter directory
+cat /dir/file    # ✅ Can read file (if you know name)
+rm /dir/file     # ✅ Can delete file (directory write permission!)
+```
 
-        You can delete files even if you can't read them!
-        Directory write permission overrides file permissions for deletion
+## Key Insights
+- Directory execute (x) is mandatory - without it, you cannot access any files inside, regardless of file permissions.
+- Dangerous combination: Directory w+x, File read-only
+- You can delete files even if you can't read them!
+- Directory write permission overrides file permissions for deletion
 
-    Stealth access: Directory x only
-        Can access files if you know exact names
-        Cannot discover what files exist
-        Useful for "hidden" file sharing
-
+## Stealth Access: Directory x only
+- Can access files if you know exact names
+- Cannot discover what files exist
+- Useful for "hidden" file sharing
 # Linux Command Line Basics
 
 ## What is sudo?  
@@ -344,3 +386,7 @@ What is the difference between the process and the services?
     Lifetime: May run continuously in the background even without user login.
     Managed by: Service managers like systemd (Linux), services.msc (Windows).
     Examples: Print spooler, web server (Apache/Nginx), database service (MySQL).
+
+How to kill a process in interactive mode [ top ] ?
+
+    Press k and enter the process to kill the process in the interactive mode.

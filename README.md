@@ -24,6 +24,7 @@ Basic Commands :-
 
 | Command | Description |
 |----------|-------------|
+| sudo apt autoremove | To remove the unused dependencies |
 | ls | To list all the folders present in the current directory |
 | pwd | To show the path of the current directory |
 | which | Full path of the command |
@@ -53,6 +54,11 @@ Basic Commands :-
 | chown -R <newuser>:<newgroup> <directory>/ | Change ownership to the folder and all it's corressponding files |
 | ps aux | View running processes with resource utilisation |
 | ps aux \| grep <process_name> | To find a particular process |
+| pgrep <processname> | Returns only the process id using the process name |
+| <command> & | To run in the background |
+| jobs | To list the process that are running in the background |
+| fg %<job_nummber> | To bring the background process into the foreground |
+| ps -u <username> | To list the process which are specifically run by that user |
 | kill -9 <PID> | To kill a process |
 | pkill -9 <process_name> | To kill all the instance of a process |
 | kill -STOP <PID> | To stop a process |
