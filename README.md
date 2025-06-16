@@ -75,6 +75,9 @@ Basic Commands :-
 | traceroute hostname | Shows the path (hops) that packets take to reach a hostname |
 | ping hostname | To test network connectivity |
 | nslookup <hostname> | Tells the IP address of the of the domain by asking to the DNS server |
+| mkdir -p /mnt/<dir_name> | Creates a directory to serve as a mount point|
+| mkfs -t ext4 /dev/<name_volume_added> | Formats the block device with the ext4 file system|
+| mount /dev/<new_volume_added> /mnt/<dir_name> |Mounts the device to the mount point|
 
 
 
