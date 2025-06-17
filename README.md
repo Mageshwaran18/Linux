@@ -24,6 +24,7 @@ Basic Commands :-
 
 | Command | Description |
 |----------|-------------|
+| `man <command>` | Shows the manual (help) page for the <command>.Provides examples and how to use that.|
 | sudo apt autoremove | To remove the unused dependencies |
 | ls | To list all the folders present in the current directory |
 | pwd | To show the path of the current directory |
