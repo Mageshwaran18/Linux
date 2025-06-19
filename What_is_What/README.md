@@ -448,7 +448,12 @@ Lists files and filters those with the word file.
 
     /mnt/demo_vol: The directory where it will be mounted
 
+## Why DevOps Engineers need shell scripting ?
 
+- For automated backups 
+- For monitoring and maintaining the log files 
+- Package installation 
+- Clean up old files 
 
 
 

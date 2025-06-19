@@ -31,6 +31,8 @@ Basic Commands :-
 | which | Full path of the command |
 | cat | To display the file content on the Screen |
 | echo | Prints text or variable to the Screen |
+| history | Shows your command history in the terminal.|
+| :q! | Used to force quit from editors like vi or vim without saving changes.|
 | apt install vim | to install vim |
 | su <username> | Switch to a user |
 | whoami | shows the current logged - in username |
