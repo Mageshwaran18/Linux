@@ -25,6 +25,8 @@ Basic Commands :-
 | Command | Description |
 |----------|-------------|
 | `man <command>` | Shows the manual (help) page for the <command>.Provides examples and how to use that.|
+| `curl <link>` | To transfer data from/to the link |
+| `read a` | Used in shell script to get the input from the user | 
 | sudo apt autoremove | To remove the unused dependencies |
 | ls | To list all the folders present in the current directory |
 | pwd | To show the path of the current directory |
@@ -81,6 +83,7 @@ Basic Commands :-
 | mkdir -p /mnt/<dir_name> | Creates a directory to serve as a mount point|
 | mkfs -t ext4 /dev/<name_volume_added> | Formats the block device with the ext4 file system|
 | mount /dev/<new_volume_added> /mnt/<dir_name> |Mounts the device to the mount point|
+
 
 
 
