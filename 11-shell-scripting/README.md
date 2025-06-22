@@ -63,7 +63,7 @@ This ensures the pipeline fails if any command in it fails — not just the last
 - curl --> Transfers data from / to a url. Supports APIs GET , POST , headers
 - wget --> Downloads files from URLs. Save content to your system 
 
-# Write s shell script to get two inputs (numbers) from user and determine the greates among them !
+## Write a shell script to get two inputs (numbers) from user and determine the greates among them !
 
 read a
 read b 
@@ -81,7 +81,6 @@ for i in {1..100}
 do
     echo "Number :- $i"
 done
-
 
 ## What should be used during the arithmetic operations ?
 
